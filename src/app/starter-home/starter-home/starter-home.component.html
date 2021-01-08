@@ -1,0 +1,65 @@
+<div class="starter-home" ibmGrid>
+	<h1 class="title">Look at you, <br>reading instructions and stuff!</h1>
+	<p class="subtitle">You have successfully installed the YDE, and it's running with no issues.</p>
+
+	<ibm-tabs [isNavigation]="false">
+		<ibm-tab heading="Yapock Status">
+			<ibm-table-container>
+				<ibm-table-header>
+					<h4 ibmTableHeaderTitle>Plugins Installed</h4>
+				</ibm-table-header>
+				<ibm-table-toolbar
+					[model]="simpleModel"
+					#toolbar>
+					<ibm-table-toolbar-actions>
+						<button ibmButton="primary" [tabindex]="toolbar.selected ? 0 : -1">
+							Delete
+							<svg ibmIconDelete size="16" class="bx--btn__icon"></svg>
+						</button>
+						<button ibmButton="primary" [tabindex]="toolbar.selected ? 0 : -1">
+							Save
+							<svg ibmIconSave size="16" class="bx--btn__icon"></svg>
+						</button>
+						<button ibmButton="primary" [tabindex]="toolbar.selected ? 0 : -1">
+							Download
+							<svg ibmIconDownload size="16" class="bx--btn__icon"></svg>
+						</button>
+					</ibm-table-toolbar-actions>
+					<ibm-table-toolbar-content>
+						<ibm-table-toolbar-search
+							ngDefaultControl
+							[expandable]="true">
+						</ibm-table-toolbar-search>
+						<ibm-overflow-menu
+							triggerClass="bx--toolbar-action"
+							placement="bottom"
+						>
+							<ibm-overflow-menu-option>Refresh</ibm-overflow-menu-option>
+							<ibm-overflow-menu-option>Display Raw</ibm-overflow-menu-option>
+						</ibm-overflow-menu>
+						<button ibmButton="primary" size="sm" [disabled]="true" [tabindex]="toolbar.selected ? -1 : 0">
+							Install<svg ibmIconDownload size="20" class="bx--btn__icon"></svg>
+						</button>
+					</ibm-table-toolbar-content>
+				</ibm-table-toolbar>
+
+				<ibm-table
+					[model]="simpleModel"
+					[skeleton]="!data?.plugins"
+					[isDataGrid]="true"
+					[noBorder]="false"
+					[sortable]="false"
+					[striped]="false"
+				>
+				</ibm-table>
+				<ng-template #customTrigger><svg ibmIconSettings size="16"></svg></ng-template>
+			</ibm-table-container>
+		</ibm-tab>
+		<ibm-tab heading="UwU">
+			<p>UwU</p><br>
+			<p class="starter-tab-description">
+				UwU
+			</p>
+		</ibm-tab>
+	</ibm-tabs>
+</div>
